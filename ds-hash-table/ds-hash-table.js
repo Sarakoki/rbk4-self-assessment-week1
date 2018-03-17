@@ -9,8 +9,20 @@ var makeHashTable = function() {
       },
 
       insert: function(key, value) {
-        //your code is here
         this._storage[hashFn(key, max)] = value;
+        var check = false;
+        var bucket = this._storage.retrieve([key,value]) || []
+        if (bucket === undefined) {
+          var tuple = bucket[i];
+          tuple.push([key,value])
+          this._storage.retrieve([key,value])
+        }
+        else {
+          if (tuple[0] === key) {
+            tuple[1] = value;
+            return value
+          }
+        }
     }
   }
 };
